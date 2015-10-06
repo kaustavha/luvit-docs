@@ -2,7 +2,7 @@
 
 <!-- type=misc -->
 
-The goal of this documentation is to comprehensively explain the luvit
+The goal of this documentation is to comprehensively explain the Luvit
 API, both from a reference as well as a conceptual point of view.  Each
 section describes a built-in module or high-level concept.
 
@@ -19,6 +19,7 @@ Every `.html` and `.json` file is generated based on the corresponding
 `.markdown` file in the `doc/api/` folder in luvit's source tree.  The
 documentation is generated using the `tools/doc/generate.js` program.
 The HTML template is located at `doc/template.html`.
+
 
 ## Stability Index
 
@@ -65,4 +66,4 @@ Please do not suggest API changes in this area; they will be refused.
 Every HTML file in the markdown has a corresponding JSON file with the
 same data.
 
-This feature was added in node v0.6.12.  It is experimental.
+This feature was added in node v0.6.12.  It is experimental. These docs are derived from nodes docs. 
