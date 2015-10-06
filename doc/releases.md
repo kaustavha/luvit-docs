@@ -1,11 +1,11 @@
-Node.js Release Process
+luvit Release Process
 =====================
 
-This document describes the technical aspects of the node.js release process. The intended audience is those who have been authorized by the Node.js Foundation Technical Steering Committee (TSC) to create, promote and sign official release builds for node.js, hosted on <https://nodejs.org>.
+This document describes the technical aspects of the luvit release process. The intended audience is those who have been authorized by the luvit Foundation Technical Steering Committee (TSC) to create, promote and sign official release builds for luvit, hosted on <https://nodejs.org>.
 
 ## Who can make a release?
 
-Release authorization is given by the node.js TSC. Once authorized, an individual must be have the following:
+Release authorization is given by the luvit TSC. Once authorized, an individual must be have the following:
 
 ### 1. Jenkins Release Access
 
@@ -17,7 +17,7 @@ There are three relevant Jenkins jobs that should be used for a release flow:
 
 **c.** **Release builds:** **[iojs+release](https://ci.nodejs.org/job/iojs+release/)** does all of the work to build all required release assets. Promotion of the release files is a manual step once they are ready (see below).
 
-The [Node.js build team](https://github.com/nodejs/build) is able to provide this access to individuals authorized by the TC.
+The [luvit build team](https://github.com/nodejs/build) is able to provide this access to individuals authorized by the TC.
 
 ### 2. <nodejs.org> Access
 
@@ -27,7 +27,7 @@ The Jenkins release build slaves upload their artifacts to the web server as the
 
 Nightly builds are promoted automatically on the server by a cron task for the _dist_ user.
 
-Release builds require manual promotion by an individual with SSH access to the server as the _dist_ user. The [Node.js build team](https://github.com/nodejs/build) is able to provide this access to individuals authorized by the TC.
+Release builds require manual promotion by an individual with SSH access to the server as the _dist_ user. The [luvit build team](https://github.com/nodejs/build) is able to provide this access to individuals authorized by the TC.
 
 ### 3. A Publicly Listed GPG Key
 
@@ -41,7 +41,7 @@ gpg --keyserver pool.sks-keyservers.net --recv-keys <FINGERPRINT>
 
 The key you use may be a child/subkey of an existing key.
 
-Additionally, full GPG key fingerprints for individuals authorized to release should be listed in the Node.js GitHub README.md file.
+Additionally, full GPG key fingerprints for individuals authorized to release should be listed in the luvit GitHub README.md file.
 
 ## How to create a release
 
@@ -132,7 +132,7 @@ The _CHANGELOG.md_ and _src/node_version.h_ changes should be the final commit t
 When committing these to git, use the following message format:
 
 ```
-YYYY-MM-DD node.js vx.y.z Release
+YYYY-MM-DD luvit vx.y.z Release
 
 Notable changes:
 
@@ -141,7 +141,7 @@ Notable changes:
 
 ### 6. Push to GitHub
 
-Note that it is not essential that the release builds be created from the Node.js repository, they may be created from your own fork if you desire. It is preferable, but not essential that the commits remain the same between that used to build and the tagged commit in the Node.js repository.
+Note that it is not essential that the release builds be created from the luvit repository, they may be created from your own fork if you desire. It is preferable, but not essential that the commits remain the same between that used to build and the tagged commit in the luvit repository.
 
 ### 7. Produce Release Builds
 
@@ -160,7 +160,7 @@ Note that you do not have to wait for the ARM builds if they are take longer tha
 Tag the release as <b><code>vx.y.z</code></b> and sign **using the same GPG key that will be used to sign SHASUMS256.txt**.
 
 ```
-$ git tag <vx.y.z> <commit-sha> -sm 'YYYY-MM-DD node.js vz.y.x Release'
+$ git tag <vx.y.z> <commit-sha> -sm 'YYYY-MM-DD luvit vz.y.x Release'
 ```
 
 Push the tag to GitHub.

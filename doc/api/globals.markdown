@@ -13,8 +13,8 @@ actually in the global scope but in the module scope - this will be noted.
 
 In browsers, the top-level scope is the global scope. That means that in
 browsers if you're in the global scope `var something` will define a global
-variable. In Node.js this is different. The top-level scope is not the global
-scope; `var something` inside an Node.js module will be local to that module.
+variable. In luvit this is different. The top-level scope is not the global
+scope; `var something` inside an luvit module will be local to that module.
 
 ## process
 
@@ -74,9 +74,9 @@ Process files with the extension `.sjs` as `.js`:
     require.extensions['.sjs'] = require.extensions['.js'];
 
 **Deprecated**  In the past, this list has been used to load
-non-JavaScript modules into Node.js by compiling them on-demand.
+non-JavaScript modules into luvit by compiling them on-demand.
 However, in practice, there are much better ways to do this, such as
-loading modules via some other Node.js program, or compiling them to
+loading modules via some other luvit program, or compiling them to
 JavaScript ahead of time.
 
 Since the Module system is locked, this feature will probably never go

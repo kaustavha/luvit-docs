@@ -519,14 +519,14 @@ to `'utf8'`.
 
 Example:
 
-    fs.writeFile('message.txt', 'Hello Node.js', function (err) {
+    fs.writeFile('message.txt', 'Hello luvit', function (err) {
       if (err) throw err;
       console.log('It\'s saved!');
     });
 
 If `options` is a string, then it specifies the encoding. Example:
 
-    fs.writeFile('message.txt', 'Hello Node.js', 'utf8', callback);
+    fs.writeFile('message.txt', 'Hello luvit', 'utf8', callback);
 
 ## fs.writeFileSync(filename, data[, options])
 

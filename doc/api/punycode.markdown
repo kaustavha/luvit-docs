@@ -2,8 +2,8 @@
 
     Stability: 2 - Stable
 
-[Punycode.js](https://mths.be/punycode) is bundled with Node.js v0.6.2+. Use
-`require('punycode')` to access it. (To use it with other Node.js versions, use
+[Punycode.js](https://mths.be/punycode) is bundled with luvit v0.6.2+. Use
+`require('punycode')` to access it. (To use it with other luvit versions, use
 npm to install the `punycode` module first.)
 
 ## punycode.decode(string)

@@ -6,7 +6,7 @@
 
 V8 comes with an extensive debugger which is accessible out-of-process via a
 simple [TCP protocol](http://code.google.com/p/v8/wiki/DebuggerProtocol).
-Node.js has a built-in client for this debugger. To use this, start Node.js with
+luvit has a built-in client for this debugger. To use this, start luvit with
 the `debug` argument; a prompt will appear:
 
     % node debug myscript.js
@@ -18,7 +18,7 @@ the `debug` argument; a prompt will appear:
       3   debugger;
     debug>
 
-Node.js's debugger client doesn't support the full range of commands, but
+luvit's debugger client doesn't support the full range of commands, but
 simple step and inspection is possible. By putting the statement `debugger;`
 into the source code of your script, you will enable a breakpoint.
 
@@ -158,12 +158,12 @@ breakpoint)
 
 ## Advanced Usage
 
-The V8 debugger can be enabled and accessed either by starting Node.js with
-the `--debug` command-line flag or by signaling an existing Node.js process
+The V8 debugger can be enabled and accessed either by starting luvit with
+the `--debug` command-line flag or by signaling an existing luvit process
 with `SIGUSR1`.
 
 Once a process has been set in debug mode with this it can be connected to
-with the Node.js debugger. Either connect to the `pid` or the URI to the
+with the luvit debugger. Either connect to the `pid` or the URI to the
 debugger. The syntax is:
 
 * `node debug -p <pid>` - Connects to the process via the `pid`

@@ -4,7 +4,7 @@
 
 Pure JavaScript is Unicode friendly but not nice to binary data.  When
 dealing with TCP streams or the file system, it's necessary to handle octet
-streams. Node.js has several strategies for manipulating, creating, and
+streams. luvit has several strategies for manipulating, creating, and
 consuming octet streams.
 
 Raw data is stored in instances of the `Buffer` class. A `Buffer` is similar
@@ -33,7 +33,7 @@ encoding method.  Here are the different string encodings.
 * `'binary'` - A way of encoding raw binary data into strings by using only
   the first 8 bits of each character. This encoding method is deprecated and
   should be avoided in favor of `Buffer` objects where possible. This encoding
-  will be removed in future versions of Node.js.
+  will be removed in future versions of luvit.
 
 * `'hex'` - Encode each byte as two hexadecimal characters.
 
@@ -46,7 +46,7 @@ Creating a typed array from a `Buffer` works with the following caveats:
    with elements `[1,2,3,4]`, not a `Uint32Array` with a single element
    `[0x1020304]` or `[0x4030201]`.
 
-NOTE: Node.js v0.8 simply retained a reference to the buffer in `array.buffer`
+NOTE: luvit v0.8 simply retained a reference to the buffer in `array.buffer`
 instead of cloning it.
 
 While more efficient, it introduces subtle incompatibilities with the typed
@@ -295,7 +295,7 @@ so the legal range is between `0x00` and `0xFF` hex or `0` and `255`.
 
 Example: copy an ASCII string into a buffer, one byte at a time:
 
-    str = "Node.js";
+    str = "luvit";
     buf = new Buffer(str.length);
 
     for (var i = 0; i < str.length ; i++) {
@@ -304,7 +304,7 @@ Example: copy an ASCII string into a buffer, one byte at a time:
 
     console.log(buf);
 
-    // Node.js
+    // luvit
 
 ### buf.equals(otherBuffer)
 

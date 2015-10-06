@@ -79,7 +79,7 @@ handshake extensions allowing you:
 
 ## Modifying the Default TLS Cipher suite
 
-Node.js is built with a default suite of enabled and disabled TLS ciphers.
+luvit is built with a default suite of enabled and disabled TLS ciphers.
 Currently, the default cipher suite is:
 
     ECDHE-RSA-AES128-GCM-SHA256:
@@ -110,7 +110,7 @@ line switch. For instance, the following makes
 
     node --tls-cipher-list="ECDHE-RSA-AES128-GCM-SHA256:!RC4"
 
-Note that the default cipher suite included within Node.js has been carefully
+Note that the default cipher suite included within luvit has been carefully
 selected to reflect current security best practices and risk mitigation.
 Changing the default cipher suite can have a significant impact on the security
 of an application. The `--tls-cipher-list` switch should by used only if
@@ -501,7 +501,7 @@ dictionary with keys:
   instead of the client preferences. For further details see `tls` module
   documentation.
 
-If no 'ca' details are given, then Node.js will use the default
+If no 'ca' details are given, then luvit will use the default
 publicly trusted list of CAs as given in
 <http://mxr.mozilla.org/mozilla/source/security/nss/lib/ckfw/builtins/certdata.txt>.
 
@@ -767,14 +767,14 @@ Example:
        { C: 'UK',
          ST: 'Acknack Ltd',
          L: 'Rhys Jones',
-         O: 'node.js',
+         O: 'luvit',
          OU: 'Test TLS Certificate',
          CN: 'localhost' },
       issuerInfo:
        { C: 'UK',
          ST: 'Acknack Ltd',
          L: 'Rhys Jones',
-         O: 'node.js',
+         O: 'luvit',
          OU: 'Test TLS Certificate',
          CN: 'localhost' },
       issuer:

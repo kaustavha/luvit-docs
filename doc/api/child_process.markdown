@@ -2,12 +2,12 @@
 
     Stability: 2 - Stable
 
-Node.js provides a tri-directional `popen(3)` facility through the
+luvit provides a tri-directional `popen(3)` facility through the
 `child_process` module.
 
 It is possible to stream data through a child's `stdin`, `stdout`, and
 `stderr` in a fully non-blocking way.  (Note that some programs use
-line-buffered I/O internally.  That doesn't affect Node.js but it means
+line-buffered I/O internally.  That doesn't affect luvit but it means
 data you send to the child process may not be immediately consumed.)
 
 To create a child process use `require('child_process').spawn()` or
@@ -61,7 +61,7 @@ of the signal, otherwise `null`.
 
 Note that the child process stdio streams might still be open.
 
-Also, note that Node.js establishes signal handlers for `'SIGINT'` and
+Also, note that luvit establishes signal handlers for `'SIGINT'` and
 `'SIGTERM`', so it will not terminate due to receipt of those signals,
 it will exit.
 
@@ -251,7 +251,7 @@ will emit objects each time it receives a message on its channel.
 
 There is a special case when sending a `{cmd: 'NODE_foo'}` message. All messages
 containing a `NODE_` prefix in its `cmd` property will not be emitted in
-the `message` event, since they are internal messages used by Node.js core.
+the `message` event, since they are internal messages used by luvit core.
 Messages containing the prefix are emitted in the `internalMessage` event.
 Avoid using this feature; it is subject to change without notice.
 
@@ -471,12 +471,12 @@ index corresponds to a fd in the child.  The value is one of the following:
    between parent and child. A ChildProcess may have at most *one* IPC stdio
    file descriptor. Setting this option enables the ChildProcess.send() method.
    If the child writes JSON messages to this file descriptor, then this will
-   trigger ChildProcess.on('message').  If the child is an Node.js program, then
+   trigger ChildProcess.on('message').  If the child is an luvit program, then
    the presence of an IPC channel will enable process.send() and
    process.on('message').
-3. `'ignore'` - Do not set this file descriptor in the child. Note that Node.js
+3. `'ignore'` - Do not set this file descriptor in the child. Note that luvit
    will always open fd 0 - 2 for the processes it spawns. When any of these is
-   ignored Node.js will open `/dev/null` and attach it to the child's fd.
+   ignored luvit will open `/dev/null` and attach it to the child's fd.
 4. `Stream` object - Share a readable or writable stream that refers to a tty,
    file, socket, or a pipe with the child process. The stream's underlying
    file descriptor is duplicated in the child process to the fd that
@@ -645,13 +645,13 @@ leaner than `child_process.exec`. It has the same options.
   * `gid` {Number} Sets the group identity of the process. (See setgid(2).)
 * Return: ChildProcess object
 
-This is a special case of the `spawn()` functionality for spawning Node.js
+This is a special case of the `spawn()` functionality for spawning luvit
 processes. In addition to having all the methods in a normal ChildProcess
 instance, the returned object has a communication channel built-in. See
 `child.send(message, [sendHandle])` for details.
 
-These child Node.js processes are still whole new instances of V8. Assume at
-least 30ms startup and 10mb memory for each new Node.js. That is, you cannot
+These child luvit processes are still whole new instances of V8. Assume at
+least 30ms startup and 10mb memory for each new luvit. That is, you cannot
 create many thousands of them.
 
 The `execPath` property in the `options` object allows for a process to be

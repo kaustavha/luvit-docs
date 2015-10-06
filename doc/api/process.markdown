@@ -7,7 +7,7 @@ It is an instance of [EventEmitter][].
 
 ## Exit Codes
 
-Node.js will normally exit with a `0` status code when no more async
+luvit will normally exit with a `0` status code when no more async
 operations are pending.  The following status codes are used in other
 cases:
 
@@ -16,13 +16,13 @@ cases:
   handler.
 * `2` - Unused (reserved by Bash for builtin misuse)
 * `3` **Internal JavaScript Parse Error** - The JavaScript source code
-  internal in Node.js's bootstrapping process caused a parse error.  This
+  internal in luvit's bootstrapping process caused a parse error.  This
   is extremely rare, and generally can only happen during development
-  of Node.js itself.
+  of luvit itself.
 * `4` **Internal JavaScript Evaluation Failure** - The JavaScript
-  source code internal in Node.js's bootstrapping process failed to
+  source code internal in luvit's bootstrapping process failed to
   return a function value when evaluated.  This is extremely rare, and
-  generally can only happen during development of Node.js itself.
+  generally can only happen during development of luvit itself.
 * `5` **Fatal Error** - There was a fatal unrecoverable error in V8.
   Typically a message will be printed to stderr with the prefix `FATAL
   ERROR`.
@@ -34,17 +34,17 @@ cases:
   function itself threw an error while attempting to handle it.  This
   can happen, for example, if a `process.on('uncaughtException')` or
   `domain.on('error')` handler throws an error.
-* `8` - Unused.  In previous versions of Node.js, exit code 8 sometimes
+* `8` - Unused.  In previous versions of luvit, exit code 8 sometimes
   indicated an uncaught exception.
 * `9` - **Invalid Argument** - Either an unknown option was specified,
   or an option requiring a value was provided without a value.
 * `10` **Internal JavaScript Run-Time Failure** - The JavaScript
-  source code internal in Node.js's bootstrapping process threw an error
+  source code internal in luvit's bootstrapping process threw an error
   when the bootstrapping function was called.  This is extremely rare,
-  and generally can only happen during development of Node.js itself.
+  and generally can only happen during development of luvit itself.
 * `12` **Invalid Debug Argument** - The `--debug` and/or `--debug-brk`
   options were set, but an invalid port number was chosen.
-* `>128` **Signal Exits** - If Node.js receives a fatal signal such as
+* `>128` **Signal Exits** - If luvit receives a fatal signal such as
   `SIGKILL` or `SIGHUP`, then its exit code will be `128` plus the
   value of the signal code.  This is a standard Unix practice, since
   exit codes are defined to be 7-bit integers, and signal exits set
@@ -85,9 +85,9 @@ event on the child's process object.
 
 ## Event: 'beforeExit'
 
-This event is emitted when Node.js empties its event loop and has nothing else to
-schedule. Normally, Node.js exits when there is no work scheduled, but a listener
-for 'beforeExit' can make asynchronous calls, and cause Node.js to continue.
+This event is emitted when luvit empties its event loop and has nothing else to
+schedule. Normally, luvit exits when there is no work scheduled, but a listener
+for 'beforeExit' can make asynchronous calls, and cause luvit to continue.
 
 'beforeExit' is not emitted for conditions causing explicit termination, such as
 `process.exit()` or uncaught exceptions, and should not be used as an
@@ -117,8 +117,8 @@ Example of listening for `uncaughtException`:
 Note that `uncaughtException` is a very crude mechanism for exception
 handling.
 
-Do *not* use it as the Node.js equivalent of `On Error Resume Next`. An
-unhandled exception means your application - and by extension Node.js itself -
+Do *not* use it as the luvit equivalent of `On Error Resume Next`. An
+unhandled exception means your application - and by extension luvit itself -
 is in an undefined state. Blindly resuming means *anything* could happen.
 
 Think of resuming as pulling the power cord when you are upgrading your system.
@@ -215,18 +215,18 @@ programs.
 
 Note:
 
-- `SIGUSR1` is reserved by Node.js to start the debugger.  It's possible to
+- `SIGUSR1` is reserved by luvit to start the debugger.  It's possible to
   install a listener but that won't stop the debugger from starting.
 - `SIGTERM` and `SIGINT` have default handlers on non-Windows platforms that resets
   the terminal mode before exiting with code `128 + signal number`. If one of
   these signals has a listener installed, its default behavior will be removed
-  (Node.js will no longer exit).
+  (luvit will no longer exit).
 - `SIGPIPE` is ignored by default. It can have a listener installed.
 - `SIGHUP` is generated on Windows when the console window is closed, and on other
   platforms under various similar conditions, see signal(7). It can have a
-  listener installed, however Node.js will be unconditionally terminated by
+  listener installed, however luvit will be unconditionally terminated by
   Windows about 10 seconds later. On non-Windows platforms, the default
-  behavior of `SIGHUP` is to terminate Node.js, but once a listener has been
+  behavior of `SIGHUP` is to terminate luvit, but once a listener has been
   installed its default behavior will be removed.
 - `SIGTERM` is not supported on Windows, it can be listened on.
 - `SIGINT` from the terminal is supported on all platforms, and can usually be
@@ -238,10 +238,10 @@ Note:
   only happen on write to the console when the cursor is being moved, or when a
   readable tty is used in raw mode.
 - `SIGKILL` cannot have a listener installed, it will unconditionally terminate
-  Node.js on all platforms.
+  luvit on all platforms.
 - `SIGSTOP` cannot have a listener installed.
 
-Note that Windows does not support sending Signals, but Node.js offers some
+Note that Windows does not support sending Signals, but luvit offers some
 emulation with `process.kill()`, and `child_process.kill()`. Sending signal `0`
 can be used to test for the existence of a process. Sending `SIGINT`,
 `SIGTERM`, and `SIGKILL` cause the unconditional termination of the target
@@ -257,11 +257,11 @@ For example, a `console.log` equivalent could look like this:
       process.stdout.write(msg + '\n');
     };
 
-`process.stderr` and `process.stdout` are unlike other streams in Node.js in
+`process.stderr` and `process.stdout` are unlike other streams in luvit in
 that they cannot be closed (`end()` will throw), they never emit the `finish`
 event and that writes are always blocking.
 
-To check if Node.js is being run in a TTY context, read the `isTTY` property
+To check if luvit is being run in a TTY context, read the `isTTY` property
 on `process.stderr`, `process.stdout`, or `process.stdin`:
 
     $ node -p "Boolean(process.stdin.isTTY)"
@@ -280,7 +280,7 @@ See [the tty docs](tty.html#tty_tty) for more information.
 
 A writable stream to stderr (on fd `2`).
 
-`process.stderr` and `process.stdout` are unlike other streams in Node.js in
+`process.stderr` and `process.stdout` are unlike other streams in luvit in
 that they cannot be closed (`end()` will throw), they never emit the `finish`
 event and that writes are usually blocking.
 
@@ -311,9 +311,9 @@ Example of opening standard input and listening for both events:
     });
 
 As a Stream, `process.stdin` can also be used in "old" mode that is compatible
-with scripts written for node.js prior to v0.10.
+with scripts written for luvit prior to v0.10.
 For more information see
-[Stream compatibility](stream.html#stream_compatibility_with_older_node_js_versions).
+[Stream compatibility](stream.html#stream_compatibility_with_older_luvit_versions).
 
 In "old" Streams mode the stdin stream is paused by default, so one
 must call `process.stdin.resume()` to read from it. Note also that calling
@@ -354,9 +354,9 @@ Example:
 
 ## process.execArgv
 
-This is the set of Node.js-specific command line options from the
+This is the set of luvit-specific command line options from the
 executable that started the process.  These options do not show up in
-`process.argv`, and do not include the Node.js executable, the name of
+`process.argv`, and do not include the luvit executable, the name of
 the script, or any options following the script name. These options
 are useful in order to spawn child processes with the same execution
 environment as the parent.
@@ -376,7 +376,7 @@ and process.argv:
 
 ## process.abort()
 
-This causes Node.js to emit an abort. This will cause Node.js to exit and
+This causes luvit to emit an abort. This will cause luvit to exit and
 generate a core file.
 
 ## process.chdir(directory)
@@ -438,7 +438,7 @@ To exit with a 'failure' code:
 
     process.exit(1);
 
-The shell that executed Node.js should see the exit code as 1.
+The shell that executed luvit should see the exit code as 1.
 
 
 ## process.exitCode
@@ -593,7 +593,7 @@ Note: this function is only available on POSIX platforms (i.e. not Windows,
 Android)
 
 Returns an array with the supplementary group IDs. POSIX leaves it unspecified
-if the effective group ID is included but Node.js ensures it always is.
+if the effective group ID is included but luvit ensures it always is.
 
 
 ## process.setgroups(groups)
@@ -635,7 +635,7 @@ A compiled-in property that exposes `NODE_VERSION`.
 
 ## process.versions
 
-A property exposing version strings of Node.js and its dependencies.
+A property exposing version strings of luvit and its dependencies.
 
     console.log(process.versions);
 
@@ -654,7 +654,7 @@ Will print something like:
 ## process.config
 
 An Object containing the JavaScript representation of the configure options
-that were used to compile the current Node.js executable. This is the same as
+that were used to compile the current luvit executable. This is the same as
 the "config.gypi" file that was produced when running the `./configure` script.
 
 An example of the possible output looks like:
@@ -687,18 +687,18 @@ for the source tarball and headers-only tarball.
 
 `process.release` contains the following properties:
 
-* `name`: a string with a value that will always be `"node"` for Node.js. For
+* `name`: a string with a value that will always be `"node"` for luvit. For
   legacy io.js releases, this will be `"io.js"`.
 * `sourceUrl`: a complete URL pointing to a _.tar.gz_ file containing the
   source of the current release.
 * `headersUrl`: a complete URL pointing to a _.tar.gz_ file containing only
   the header files for the current release. This file is significantly smaller
   than the full source file and can be used for compiling add-ons against
-  Node.js.
+  luvit.
 * `libUrl`: a complete URL pointing to an _node.lib_ file matching the
   architecture and version of the current release. This file is used for
-  compiling add-ons against Node.js. _This property is only present on Windows
-  builds of Node.js and will be missing on all other platforms._
+  compiling add-ons against luvit. _This property is only present on Windows
+  builds of luvit and will be missing on all other platforms._
 
 e.g.
 
@@ -738,7 +738,7 @@ Example of sending a signal to yourself:
 
     process.kill(process.pid, 'SIGHUP');
 
-Note: When SIGUSR1 is received by Node.js it starts the debugger, see
+Note: When SIGUSR1 is received by luvit it starts the debugger, see
 [Signal Events](#process_signal_events).
 
 ## process.pid
@@ -780,7 +780,7 @@ What platform you're running on:
 
 ## process.memoryUsage()
 
-Returns an object describing the memory usage of the Node.js process
+Returns an object describing the memory usage of the luvit process
 measured in bytes.
 
     var util = require('util');
@@ -887,7 +887,7 @@ given, otherwise returns the current mask.
 
 ## process.uptime()
 
-Number of seconds Node.js has been running.
+Number of seconds luvit has been running.
 
 
 ## process.hrtime()
@@ -917,12 +917,12 @@ a diff reading, useful for benchmarks and measuring intervals:
 * `message` {Object}
 * `sendHandle` {Handle object}
 
-When Node.js is spawned with an IPC channel attached, it can send messages to its
+When luvit is spawned with an IPC channel attached, it can send messages to its
 parent process using `process.send()`. Each will be received as a
 ['message'](child_process.html#child_process_event_message)
 event on the parent's `ChildProcess` object.
 
-If Node.js was not spawned with an IPC channel, `process.send()` will be undefined.
+If luvit was not spawned with an IPC channel, `process.send()` will be undefined.
 
 
 ## process.disconnect()
@@ -933,7 +933,7 @@ gracefully once there are no other connections keeping it alive.
 Identical to the parent process's
 [ChildProcess.disconnect()](child_process.html#child_process_child_disconnect).
 
-If Node.js was not spawned with an IPC channel, `process.disconnect()` will be
+If luvit was not spawned with an IPC channel, `process.disconnect()` will be
 undefined.
 
 

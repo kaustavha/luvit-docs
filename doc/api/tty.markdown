@@ -5,9 +5,9 @@
 The `tty` module houses the `tty.ReadStream` and `tty.WriteStream` classes. In
 most cases, you will not need to use this module directly.
 
-When Node.js detects that it is being run inside a TTY context, then `process.stdin`
+When luvit detects that it is being run inside a TTY context, then `process.stdin`
 will be a `tty.ReadStream` instance and `process.stdout` will be
-a `tty.WriteStream` instance. The preferred way to check if Node.js is being run
+a `tty.WriteStream` instance. The preferred way to check if luvit is being run
 in a TTY context is to check `process.stdout.isTTY`:
 
     $ node -p -e "Boolean(process.stdout.isTTY)"
@@ -31,7 +31,7 @@ terminal.
 
 A `net.Socket` subclass that represents the readable portion of a tty. In normal
 circumstances, `process.stdin` will be the only `tty.ReadStream` instance in any
-Node.js program (only when `isatty(0)` is true).
+luvit program (only when `isatty(0)` is true).
 
 ### rs.isRaw
 
