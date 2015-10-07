@@ -4,3 +4,4 @@
 * [Synopsis](synopsis.html)
 * [Query String](querystring.html)
 * [URL](url.html)
+* [core](core.html)
