@@ -75,3 +75,40 @@ Resumes a stream
 ## Readable:pause()
 
 Pauses a stream
+
+## Class: Stream.WriteReq
+
+Used internally within the Writable class.  
+
+## Class: Stream.WritableState
+
+Used internally within the Writable class to hold state.  
+
+## WritableState:initialize(options, stream)
+
+Options table:
+
+* HighWaterMark - Defaults to 16, maxes out at 128MB. 128MB limit cannot be overwritten without modifying luvit/deps/stream/stream_readable
+* objectMode - If false/nil then the highWaterMark is set to 16 * 1024
+
+## Class: Stream.Writable
+
+The writable stream class  
+Emits `end` when done  
+
+## Writable:initialize(options)
+
+You can modify the writable state options here, or set them.
+
+## Writable:write(chunk, cb)
+
+Manually write a chunk
+
+## Writable:cork()
+
+Kind of like pause
+
+## Writable:uncork()
+
+Kind of like resume
+
