@@ -6,3 +6,4 @@
 @include childprocess
 @include fs
 @include stream
+@include path
