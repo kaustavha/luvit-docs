@@ -4,3 +4,4 @@
 @include url
 @include core
 @include childprocess
+@include fs
