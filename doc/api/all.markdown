@@ -5,3 +5,4 @@
 @include core
 @include childprocess
 @include fs
+@include stream
