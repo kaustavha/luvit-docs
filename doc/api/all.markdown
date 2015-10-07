@@ -3,3 +3,4 @@
 @include querystring
 @include url
 @include core
+@include childprocess
