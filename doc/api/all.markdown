@@ -7,3 +7,4 @@
 @include fs
 @include stream
 @include path
+@include json
