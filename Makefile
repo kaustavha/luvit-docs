@@ -8,7 +8,10 @@ apidoc_dirs = out/doc out/doc/api/ out/doc/api/assets
 
 apiassets = $(subst api_assets,api/assets,$(addprefix out/,$(wildcard doc/api_assets/*)))
 
-doc: $(apidoc_dirs) $(apiassets) $(apidocs) tools/doc/
+docclean:
+	-rm -rf out/doc
+
+doc: docclean $(apidoc_dirs) $(apiassets) $(apidocs) tools/doc/
 
 $(apidoc_dirs):
 	mkdir -p $@
@@ -27,6 +30,3 @@ out/doc/api/%.html: doc/api/%.markdown $(NODE_EXE)
 
 docopen: out/doc/api/all.html
 	-google-chrome out/doc/api/all.html
-
-docclean:
-	-rm -rf out/doc
