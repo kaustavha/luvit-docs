@@ -10,3 +10,6 @@
 * [Stream](stream.html)
 * [Path](path.html)
 * [JSON](json.html)
+* [Buffer](buffer.html)
+* [Codec](codec.html)
+* [Datagram/UDP](dgram.html)
