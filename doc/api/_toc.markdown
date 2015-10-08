@@ -25,3 +25,4 @@
 * [Readline](readline.html)
 * [REPL](repl.html)
 * [Require](require.html)
+* [Thread](thread.html)

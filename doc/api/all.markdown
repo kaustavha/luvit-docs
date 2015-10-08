@@ -23,3 +23,4 @@
 @include readline
 @include repl
 @include require
+@include thread
