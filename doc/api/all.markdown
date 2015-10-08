@@ -21,3 +21,5 @@
 @include pretty-print
 @include process
 @include readline
+@include repl
+@include require

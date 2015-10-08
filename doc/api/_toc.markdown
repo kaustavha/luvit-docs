@@ -23,3 +23,5 @@
 * [Pretty print](pretty-print.html)
 * [Process](process.html)
 * [Readline](readline.html)
+* [REPL](repl.html)
+* [Require](require.html)
