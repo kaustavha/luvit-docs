@@ -22,3 +22,4 @@
 * [Net](net.html)
 * [Pretty print](pretty-print.html)
 * [Process](process.html)
+* [Readline](readline.html)

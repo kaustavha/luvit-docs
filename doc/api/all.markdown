@@ -20,3 +20,4 @@
 @include net
 @include pretty-print
 @include process
+@include readline
