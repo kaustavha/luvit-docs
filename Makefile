@@ -1,4 +1,5 @@
 NODE = node
+UNAME_S := $(shell uname -s)
 
 apidoc_sources = $(wildcard doc/api/*.markdown)
 apidocs = $(addprefix out/,$(apidoc_sources:.markdown=.html)) \
@@ -29,4 +30,8 @@ out/doc/api/%.html: doc/api/%.markdown $(NODE_EXE)
 	$(NODE) tools/doc/generate.js --format=html --template=doc/template.html $< > $@
 
 docopen: out/doc/api/all.html
+ifeq ($(UNAME_S), Darwin)
+	open -a "Google Chrome" out/doc/api/all.html
+else
 	-google-chrome out/doc/api/all.html
+endif
