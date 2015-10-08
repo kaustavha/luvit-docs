@@ -16,3 +16,4 @@
 @include http
 @include https
 @include los
+@include net
