@@ -12,7 +12,7 @@ Thread module for luvit
 
 ## thread.self()
 
-## thread.worker(threadFunc, notifyEntry)
+## thread.work(threadFunc, notifyEntry)
 
 ## thread.queue(worker, ...)
 
