@@ -1,4 +1,4 @@
-# DATAGRAM | UDP
+# Datagram | UDP
 
 Node-style udp module for luvit
 

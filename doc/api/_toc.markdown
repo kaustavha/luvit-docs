@@ -16,3 +16,4 @@
 * [DNS](dns.html)
 * [Helpful](helpful.html)
 * [Http](http.html)
+* [HTTP-codec](http-codec.html)

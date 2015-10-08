@@ -1,4 +1,4 @@
-# Http
+# HTTP
 
 Node-style http client and server module for luvit
 
