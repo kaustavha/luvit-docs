@@ -27,3 +27,4 @@
 * [Require](require.html)
 * [Thread](thread.html)
 * [Timer](timer.html)
+* [Utilities](utils.html)
