@@ -12,3 +12,5 @@
 @include codec
 @include dgram
 @include dns
+@include helpful
+@include http

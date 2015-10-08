@@ -14,3 +14,5 @@
 * [Codec](codec.html)
 * [Datagram/UDP](dgram.html)
 * [DNS](dns.html)
+* [Helpful](helpful.html)
+* [Http](http.html)
