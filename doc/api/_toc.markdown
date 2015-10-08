@@ -26,3 +26,4 @@
 * [REPL](repl.html)
 * [Require](require.html)
 * [Thread](thread.html)
+* [Timer](timer.html)

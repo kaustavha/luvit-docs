@@ -24,3 +24,4 @@
 @include repl
 @include require
 @include thread
+@include timer
