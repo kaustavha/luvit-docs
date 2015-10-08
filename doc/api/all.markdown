@@ -14,3 +14,5 @@
 @include dns
 @include helpful
 @include http
+@include https
+@include los
