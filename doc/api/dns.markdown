@@ -1,4 +1,4 @@
-## DNS
+# DNS
 
 Node-style dns module for luvit
 
