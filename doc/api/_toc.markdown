@@ -13,3 +13,4 @@
 * [Buffer](buffer.html)
 * [Codec](codec.html)
 * [Datagram/UDP](dgram.html)
+* [DNS](dns.html)

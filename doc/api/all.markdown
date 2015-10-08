@@ -11,3 +11,4 @@
 @include buffer
 @include codec
 @include dgram
+@include dns
