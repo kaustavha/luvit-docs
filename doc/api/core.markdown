@@ -12,16 +12,16 @@ Given an object which inherits from a class, and a class, returns whether the ob
 true
 ```
 
-## core.Object
+## Class: core.Object
 
 The base object class. It provides simple prototypal inheritance and inheritable constructors. 
 All other objects inherit from this.
 
-## Object:create()
+### Object:create()
 
 Creates a new instance of the base object
 
-## Object:new(...)
+### Object:new(...)
 
 Creates a new instance and calls `obj:initialize(...)` if it exists.
 ```
@@ -37,7 +37,7 @@ local rect = Rectangle:new(3, 4)
 p(rect:getArea())
 ```
 
-## Object:extend()
+### Object:extend()
 
 Creates a new sub-class.
 
@@ -73,7 +73,7 @@ emitter:on('end', utils.bind(some_func, emitter))
 emitter:emit('end', 'a', 'b', 'c')
 ```
 
-## Emitter:on(name. callback)
+### Emitter:on(name. callback)
 
 Adds an event listener (`callback`) for the named event `name`.
 
@@ -82,15 +82,15 @@ em = Emitter:new()
 em:on('data', function(data) print(data) end)
 ```
 
-## Emitter:once(name, callback)
+### Emitter:once(name, callback)
 
 Same as `Emitter:on` except it de-registers itself after the first event.
 
-## Emitter:listenerCount(name)
+### Emitter:listenerCount(name)
 
 Returns the count of the listeners bound to an event with the name `name`
 
-## Emitter:emit(name, ...)
+### Emitter:emit(name, ...)
 
 Emit a named event to all listeners with optional data arguments
 
@@ -101,7 +101,7 @@ Emit a named event to all listeners with optional data arguments
 'foo'
 ```
 
-## Emitter:removeListener(name, callback)
+### Emitter:removeListener(name, callback)
 
 Removes a listener so it no longer catches events
 
@@ -114,15 +114,15 @@ foo
 > -- nothing printed
 ```
 
-## Emitter:removeAllListeners(name)
+### Emitter:removeAllListeners(name)
 
 Removes all listeners. Name is optional and if supplied will make it act like removeListener
 
-## Emitter:listeners(name)
+### Emitter:listeners(name)
 
 Returns listeners for the event with name `name`
 
-## Emitter:wrap(name)
+### Emitter:wrap(name)
 
 Utility that binds the named method `self[name]` for use as a callback.  The
 first argument (`err`) is re-routed to the "error" event instead.
@@ -137,7 +137,7 @@ first argument (`err`) is re-routed to the "error" event instead.
       -- and so forth
     end
     
-## Emitter:propagate(eventName, target)
+### Emitter:propagate(eventName, target)
 
 Propagate the event to another emitter.
 
@@ -145,6 +145,6 @@ Propagate the event to another emitter.
 
 This is for code that wants structured error messages.
 
-## Error:initialize(message)
+### Error:initialize(message)
 
 How to handle strings

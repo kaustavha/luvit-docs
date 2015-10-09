@@ -11,21 +11,41 @@ Pulled from https://github.com/creationix/weblit/blob/master/libs/weblit-app.lua
 
 ## Class: http.IncomingMessage
 
+Incoming message class, extends net.Socket.  
+
+### IncomingMessage:initialize(head, socket)
+
+Head is headers. 
+Headers declared in this child class, i.e. options expected in the head table:
+```
+- version - httpVersion
+// Server specific
+- method
+- path - url
+// Client specific
+- code - statusCode
+- reason - statusMessage
+```
+
+### IncomingMessage:_read()
+
+Resumes self.socket
+
 ## Class: http.ServerResponse
 
-## ServerResponse:setHeader(name, value)
+### ServerResponse:setHeader(name, value)
 
-## ServerResponse:getHeader(name)
+### ServerResponse:getHeader(name)
 
-## ServerResponse:removeHeader(name)
+### ServerResponse:removeHeader(name)
 
-## ServerResponse:flushHeaders()
+### ServerResponse:flushHeaders()
 
-## ServerResponse:write(chunk, callback)
+### ServerResponse:write(chunk, callback)
 
-## ServerResponse:finish(chunk)
+### ServerResponse:finish(chunk)
 
-## ServerResponse:writeHead(newStatusCode, newHeaders)
+### ServerResponse:writeHead(newStatusCode, newHeaders)
 
 ## http.handleConnections(socket, onRequest)
 
@@ -33,15 +53,15 @@ Pulled from https://github.com/creationix/weblit/blob/master/libs/weblit-app.lua
 
 ## Class: http.ClientRequest
 
-## ClientRequest.getDefaultUserAgent()
+### ClientRequest.getDefaultUserAgent()
 
-## ClientRequest:flushHeaders()
+### ClientRequest:flushHeaders()
 
-## ClientRequest:write(data, cb)
+### ClientRequest:write(data, cb)
 
-## ClientRequest:done(data, cb)
+### ClientRequest:done(data, cb)
 
-## ClientRequest:setTimeout(msecs, callback)
+### ClientRequest:setTimeout(msecs, callback)
 
 ## http.parseUrl(url)
 

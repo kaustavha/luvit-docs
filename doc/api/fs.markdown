@@ -382,7 +382,7 @@ writable:write(chunk) -- optional callback
 writable:close()
 ```
 
-## fs.WriteStream:initialize(path, options)
+### WriteStream:initialize(path, options)
 
 You can set the path to the file and options here. Options is a table with the following key-value pairs
 
@@ -394,20 +394,20 @@ You can set the path to the file and options here. Options is a table with the f
 
 * start - Start position
 
-## fs.WriteStream:open(callback)
+### WriteStream:open(callback)
 
 Callback to fire when the write stream is opened. This callback gets no arguments
 An open event is also emitted with the file descriptor when the file is opened
 
-## fs.WriteStream:_write(data, callback)
+### WriteStream:_write(data, callback)
 
 Internal write utility. Bind the declared `_write` in your inherited class to be called when the file is opened
 
-## fs.WriteStream:close()
+### WriteStream:close()
 
 Closes or destroys the write stream. Calls self:destroy()
 
-## fs.WriteStream:destroy()
+### WriteStream:destroy()
 
 Closes the write stream
 
@@ -424,7 +424,7 @@ A synchronous version of the WriteStream class. Extends WriteStream
 A parent class for creating readable streams from files
 You should extend the following class methods in your extended instance
  
-## fs.ReadStream:initialize(path, options)
+### ReadStream:initialize(path, options)
 
 Initializer for the ReadStream class. 
 Options table key values: 
@@ -435,20 +435,20 @@ Options table key values:
 * chunkSize
 * length
 
-## fs.ReadStream:open(callback)
+### ReadStream:open(callback)
 
 Callback to fire when the read stream is opened. This callback gets no arguments
 An open event is also emitted with the file descriptor when the file is opened
 
-## fs.ReadStream:_read(n)
+### ReadStream:_read(n)
 
 Reads a file, n chunk bytes at a time. You can set the n in the init options
 
-## fs.ReadStream:close()
+### ReadStream:close()
 
 Closes the readstream. 
 
-## fs.ReadStream:destroy(err)
+### ReadStream:destroy(err)
 
 Destroys the readstream. Gets called by close. Emits 'error' with err if theres an error. 
 

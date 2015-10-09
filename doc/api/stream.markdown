@@ -15,7 +15,7 @@ You will most likely not use this class. The only relevant part of this class, t
 
 Used to hold state by the Readable class
 
-## ReadableState:initialize(options, stream)
+### ReadableState:initialize(options, stream)
 
 Options table:
 
@@ -28,28 +28,28 @@ Options table:
 Extends Stream.Stream, implements a readable stream interface. 
 Uses ReadableState to keep track of self._readableState
 
-## Readable:push(chunk)
+### Readable:push(chunk)
 
 Manually shove something into the read buffer. 
 This returns true if the highWaterMark has not been hit yet, similar to how Writable.write() returns true if you should write() some more.
 
-## Readable:unshift(chunk)
+### Readable:unshift(chunk)
 
 Unshift should *always* be something directly out of read()
 
-## Readable:read(n)
+### Readable:read(n)
 
 Reads and returns n chunk bytes
 
-## Readable:_read(n)
+### Readable:_read(n)
 
 Internal method executed by Readable:read. Can be overwritten in child classes. 
 
-## Readable:unpipe(dest)
+### Readable:unpipe(dest)
 
 Removes pipes to dest
 
-## Readable:on(ev, fn)
+### Readable:on(ev, fn)
 
 Triggers a callback `fn` when an event `ev` is triggered. 
 E.g.
@@ -63,16 +63,16 @@ E.g.
 'foo'
 ```
 
-## Readable.addListener
+### Readable.addListener
 
 Alias for Readable:on  
 You can use Readable:addListener for an implicit self or use Readable.addListener(self, ...)
 
-## Readable:resume()
+### Readable:resume()
 
 Resumes a stream
 
-## Readable:pause()
+### Readable:pause()
 
 Pauses a stream
 
@@ -84,7 +84,7 @@ Used internally within the Writable class.
 
 Used internally within the Writable class to hold state.  
 
-## WritableState:initialize(options, stream)
+### WritableState:initialize(options, stream)
 
 Options table:
 
@@ -96,19 +96,19 @@ Options table:
 The writable stream class  
 Emits `end` when done  
 
-## Writable:initialize(options)
+### Writable:initialize(options)
 
 You can modify the writable state options here, or set them.
 
-## Writable:write(chunk, cb)
+### Writable:write(chunk, cb)
 
 Manually write a chunk
 
-## Writable:cork()
+### Writable:cork()
 
 Kind of like pause
 
-## Writable:uncork()
+### Writable:uncork()
 
 Kind of like resume
 
@@ -116,7 +116,7 @@ Kind of like resume
 
 A Duplex stream is both readable and writable and inherits the functionality and methods of the aforementioned readable and writable classes.  
 
-## Duplex:initialize(options)
+### Duplex:initialize(options)
 
 These options are passed along to the initializers of the readable and writable streams this class uses.  
 Furthermore, we can have the following key values in the options table.
@@ -169,11 +169,11 @@ However, even in such a pathological case, only a single written chunk
 would be consumed, and then the rest would wait (un-transformed) until
 the results of the previous transformed chunk were consumed.
 
-## Transform:initialize(options)
+### Transform:initialize(options)
 
 Extendable initializer for the Transform class. 
 
-## Transform:_transform(chunk, cb)
+### Transform:_transform(chunk, cb)
 
 The internal transform method. You must define this in your child class. 
 E.g. Implement a passthrough filter aka a very fancy way to print hello world
