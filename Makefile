@@ -1,3 +1,6 @@
+all: docclean doc docopen
+.PHONY : all
+
 NODE = node
 UNAME_S := $(shell uname -s)
 
@@ -12,7 +15,7 @@ apiassets = $(subst api_assets,api/assets,$(addprefix out/,$(wildcard doc/api_as
 docclean:
 	-rm -rf out/doc
 
-doc: docclean $(apidoc_dirs) $(apiassets) $(apidocs) tools/doc/
+doc: $(apidoc_dirs) $(apiassets) $(apidocs) tools/doc/
 
 $(apidoc_dirs):
 	mkdir -p $@
