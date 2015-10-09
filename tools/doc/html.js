@@ -1,14 +1,15 @@
-var fs = require('fs');
-var marked = require('marked');
-var path = require('path');
-var preprocess = require('./preprocess.js');
+var fs = require('fs'),
+    marked = require('marked'),
+    path = require('path'),
+    preprocess = require('./preprocess.js'),
+    version = '2.5.6';
 
 module.exports = toHTML;
 
-// TODO(chrisdickinson): never stop vomitting / fix this.
 var gtocPath = path.resolve(path.join(__dirname, '..', '..', 'doc', 'api', 'index.markdown'));
 var gtocLoading = null;
 var gtocData = null;
+
 
 function toHTML(input, filename, template, cb) {
   if (gtocData) {
@@ -76,7 +77,7 @@ function render(lexed, filename, template, cb) {
     template = template.replace(/__ID__/g, id);
     template = template.replace(/__FILENAME__/g, filename);
     template = template.replace(/__SECTION__/g, section);
-    template = template.replace(/__VERSION__/g, process.version);
+    template = template.replace(/__VERSION__/g, version);
     template = template.replace(/__TOC__/g, toc);
     template = template.replace(
       /__GTOC__/g,
