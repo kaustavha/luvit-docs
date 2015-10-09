@@ -8,8 +8,8 @@
 @include dns
 @include fs
 @include helpful
-@include http
 @include http-codec
+@include http
 @include https
 @include json
 @include los

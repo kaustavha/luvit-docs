@@ -6,7 +6,7 @@ var preprocess = require('./preprocess.js');
 module.exports = toHTML;
 
 // TODO(chrisdickinson): never stop vomitting / fix this.
-var gtocPath = path.resolve(path.join(__dirname, '..', '..', 'doc', 'api', '_toc.markdown'));
+var gtocPath = path.resolve(path.join(__dirname, '..', '..', 'doc', 'api', 'index.markdown'));
 var gtocLoading = null;
 var gtocData = null;
 
