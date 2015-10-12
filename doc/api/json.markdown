@@ -36,9 +36,9 @@ local tbl = json.parse( json_str )
 
 Same as json.parse
 
-## json.null
+## Value: json.null
 
-> A null property type for JSON encoding.
+A null property type for JSON encoding.
 
 ``` lua
 local tbl = { user = "Jane", is_working = json.null }

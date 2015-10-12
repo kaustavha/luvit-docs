@@ -49,7 +49,7 @@ function Square:initialize(w)
 end
 ```
 
-## core.Emitter
+## Class: core.Emitter
 
 This class can be used directly whenever an event emitter is needed.
 ```
@@ -141,7 +141,7 @@ first argument (`err`) is re-routed to the "error" event instead.
 
 Propagate the event to another emitter.
 
-## core.Error
+## Class: core.Error
 
 This is for code that wants structured error messages.
 
