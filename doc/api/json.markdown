@@ -10,7 +10,7 @@ local json = require('json').use_lpeg()
 
 ## json.stringify(value [, state])
 
-> Serialize a Lua table into a JSON string.
+Serialize a Lua table into a JSON string.
 
 ``` lua
 local tbl = { username = "Groucho" }
@@ -20,11 +20,11 @@ local json_str = json.stringify( tbl )
 
 ## json.encode(value[, state])
 
-Same as stringify
+Alias for json.stringify
 
 ## json.parse(str [, pos][, nullval][, ...])
 
-> Deserialize a JSON string into a Lua table.
+Deserialize a JSON string into a Lua table.
 
 ``` lua
 local json_str = '{ "username": "Groucho" }'
@@ -34,7 +34,7 @@ local tbl = json.parse( json_str )
 
 ## json.decode(str[, pos, nullval, ...])
 
-Same as json.parse
+Alias for json.parse
 
 ## Value: json.null
 
