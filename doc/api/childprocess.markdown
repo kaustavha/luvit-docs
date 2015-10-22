@@ -29,3 +29,31 @@ to get lines instead.
     total 2
     drwxr-xr-x   31 root  wheel   1.1K Aug 21 16:39 .
     drwxr-xr-x   31 root  wheel   1.1K Aug 21 16:39 ..
+
+Options can have the following k-v pairs:
+```
+detached = [Boolean]
+stdio = [Array]
+cwd = [String]
+uid = [Number]
+gid = [Number]
+```
+
+## childprocess.exec(command[, options], callback)
+
+Executes the supplied command and returns data returned in the callback.  
+The callback can be either a function or a thread for coroutine style code.  
+The command can have arguments e.g. `childprocess.exec('ls -a', print)`.  
+
+Options can have the following k-v pairs:  
+```
+timeout = [Number]  
+maxBuffer = [Integer, default: 4 * 1024]
+signal = [String, default: 'SIGTERM'] 
+shell = [String, default: 'cmd.exe' or '/bin/sh']
+```
+Additionally since this function delegates to Spawn, all spawn option k-vs are also valid.   
+
+## childprocess.execFile(file[, args, options, callback])
+
+Similiar to exec but the arguments for the command/file must be supplied as a string to the second parameter.  Also, callback is optional as well here.  
