@@ -1,3 +1,9 @@
+# Deprecated
+
+This is the original repository for the offical docs for the luvit api.  
+Please contribute upstream at https://github.com/luvit/luvit-docs
+That fork is maintained and deploys to the luvit docs site. 
+
 # Luvit Documentation
 
 Much needed docs for [Luvit](https://luvit.io/). 
